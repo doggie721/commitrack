@@ -1,12 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CommiTrack – Tu comisión, clara y sin trucos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2em;
+      color: #333;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: space-between;
+    }
+    .gallery-item {
+      flex: 1 1 calc(33% - 1em);
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .caption {
+      font-style: italic;
+      color: #555;
+      margin-top: 0.5em;
+    }
+    @media (max-width: 768px) {
+      .gallery-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 2em; color: #333;">
+<body>
   <h1 style="color: #2c3e50;">Bienvenido a CommiTrack</h1>
   <p><em>Tu comisión, clara y sin trucos</em></p>
 
@@ -23,42 +57,36 @@
   </ul>
 
   <h2>Capturas de pantalla</h2>
-  
-    <div style="margin-bottom: 2em;">
-      <img src="0.png" alt="CommiTrack: controla tus comisiones de ventas con claridad" style="width:100%; max-width:400px; display:block; margin:auto;">
-      <p style="text-align:center; font-style:italic; color:#555;">CommiTrack: controla tus comisiones de ventas con claridad</p>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="0.png" alt="CommiTrack: controla tus comisiones de ventas con claridad">
+      <p class="caption">CommiTrack: controla tus comisiones de ventas con claridad</p>
     </div>
-    
-    <div style="margin-bottom: 2em;">
-      <img src="1.png" alt="Inicio de sesión rápido con Face ID o Touch ID" style="width:100%; max-width:400px; display:block; margin:auto;">
-      <p style="text-align:center; font-style:italic; color:#555;">Inicio de sesión rápido con Face ID o Touch ID</p>
+    <div class="gallery-item">
+      <img src="1.png" alt="Inicio de sesión rápido con Face ID o Touch ID">
+      <p class="caption">Inicio de sesión rápido con Face ID o Touch ID</p>
     </div>
-    
-    <div style="margin-bottom: 2em;">
-      <img src="2.png" alt="Registra tus ventas de productos fácilmente" style="width:100%; max-width:400px; display:block; margin:auto;">
-      <p style="text-align:center; font-style:italic; color:#555;">Registra tus ventas de productos fácilmente</p>
+    <div class="gallery-item">
+      <img src="2.png" alt="Registra tus ventas de productos fácilmente">
+      <p class="caption">Registra tus ventas de productos fácilmente</p>
     </div>
-    
-    <div style="margin-bottom: 2em;">
-      <img src="3.png" alt="Personaliza las tarifas de comisión por producto" style="width:100%; max-width:400px; display:block; margin:auto;">
-      <p style="text-align:center; font-style:italic; color:#555;">Personaliza las tarifas de comisión por producto</p>
+    <div class="gallery-item">
+      <img src="3.png" alt="Personaliza las tarifas de comisión por producto">
+      <p class="caption">Personaliza las tarifas de comisión por producto</p>
     </div>
-    
-    <div style="margin-bottom: 2em;">
-      <img src="4.png" alt="Guarda tu informe de ventas con rapidez" style="width:100%; max-width:400px; display:block; margin:auto;">
-      <p style="text-align:center; font-style:italic; color:#555;">Guarda tu informe de ventas con rapidez</p>
+    <div class="gallery-item">
+      <img src="4.png" alt="Guarda tu informe de ventas con rapidez">
+      <p class="caption">Guarda tu informe de ventas con rapidez</p>
     </div>
-    
-    <div style="margin-bottom: 2em;">
-      <img src="5.png" alt="Consulta tus comisiones por semana, mes o año" style="width:100%; max-width:400px; display:block; margin:auto;">
-      <p style="text-align:center; font-style:italic; color:#555;">Consulta tus comisiones por semana, mes o año</p>
+    <div class="gallery-item">
+      <img src="5.png" alt="Consulta tus comisiones por semana, mes o año">
+      <p class="caption">Consulta tus comisiones por semana, mes o año</p>
     </div>
-    
-    <div style="margin-bottom: 2em;">
-      <img src="6.png" alt="Genera informes claros con gráficos visuales" style="width:100%; max-width:400px; display:block; margin:auto;">
-      <p style="text-align:center; font-style:italic; color:#555;">Genera informes claros con gráficos visuales</p>
+    <div class="gallery-item">
+      <img src="6.png" alt="Genera informes claros con gráficos visuales">
+      <p class="caption">Genera informes claros con gráficos visuales</p>
     </div>
-    
+  </div>
 
   <h2>Disponible ahora</h2>
   <p>CommiTrack está disponible para iOS (y próximamente para Android). ¡Descárgala hoy en el App Store!</p>
@@ -72,3 +100,4 @@
   </footer>
 </body>
 </html>
+
