@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CommiTrack – Your Commission, Clear and Without Tricks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2em;
+      color: #333;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: space-between;
+    }
+    .gallery-item {
+      flex: 1 1 calc(33% - 1em);
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .caption {
+      font-style: italic;
+      color: #555;
+      margin-top: 0.5em;
+    }
+    @media (max-width: 768px) {
+      .gallery-item {
+        flex: 1 1 100%;
+      }
+    }
+    .download-btn {
+      display: inline-block;
+      background-color: #0070f3;
+      color: white;
+      font-size: 1.2rem;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 1em;
+    }
+    .download-btn:hover {
+      background-color: #005ac1;
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 2em; color: #333;">
+<body>
   <h1 style="color: #2c3e50;">Welcome to CommiTrack</h1>
   <p><em>Your Commission, Clear and Without Tricks</em></p>
 
@@ -22,39 +70,42 @@
   </ul>
 
   <h2>Screenshots</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center;">
-    <div style="flex: 1 1 30%; text-align: center;">
-      <img src="Sceeen1.png" style="width: 100%; max-width: 250px;">
-      <p style="font-style: italic; color: #555;">Track your sales commissions with clarity</p>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="Sceeen1.png" alt="CommiTrack: Track your sales commissions with clarity">
+      <p class="caption">Track your sales commissions with clarity</p>
     </div>
-    <div style="flex: 1 1 30%; text-align: center;">
-      <img src="Sceeen2.png" style="width: 100%; max-width: 250px;">
-      <p style="font-style: italic; color: #555;">Quick login with Face ID / Touch ID</p>
+    <div class="gallery-item">
+      <img src="Sceeen2.png" alt="Quick login with Face ID / Touch ID">
+      <p class="caption">Quick login with Face ID / Touch ID</p>
     </div>
-    <div style="flex: 1 1 30%; text-align: center;">
-      <img src="Sceeen3.png" style="width: 100%; max-width: 250px;">
-      <p style="font-style: italic; color: #555;">Log your product sales easily</p>
+    <div class="gallery-item">
+      <img src="Sceeen3.png" alt="Log your product sales easily">
+      <p class="caption">Log your product sales easily</p>
     </div>
-    <div style="flex: 1 1 30%; text-align: center;">
-      <img src="Sceeen4.png" style="width: 100%; max-width: 250px;">
-      <p style="font-style: italic; color: #555;">Customize commission rates by product</p>
+    <div class="gallery-item">
+      <img src="Sceeen4.png" alt="Customize commission rates by product">
+      <p class="caption">Customize commission rates by product</p>
     </div>
-    <div style="flex: 1 1 30%; text-align: center;">
-      <img src="Sceeen5.png" style="width: 100%; max-width: 250px;">
-      <p style="font-style: italic; color: #555;">Save your sales report quickly</p>
+    <div class="gallery-item">
+      <img src="Sceeen5.png" alt="Save your sales report quickly">
+      <p class="caption">Save your sales report quickly</p>
     </div>
-    <div style="flex: 1 1 30%; text-align: center;">
-      <img src="Sceeen6.png" style="width: 100%; max-width: 250px;">
-      <p style="font-style: italic; color: #555;">Check your commissions by week, month or year</p>
+    <div class="gallery-item">
+      <img src="Sceeen6.png" alt="Check your commissions by week, month or year">
+      <p class="caption">Check your commissions by week, month or year</p>
     </div>
-    <div style="flex: 1 1 30%; text-align: center;">
-      <img src="Sceeen7.png" style="width: 100%; max-width: 250px;">
-      <p style="font-style: italic; color: #555;">Generate clear reports with visual charts</p>
+    <div class="gallery-item">
+      <img src="Sceeen7.png" alt="Generate clear reports with visual charts">
+      <p class="caption">Generate clear reports with visual charts</p>
     </div>
   </div>
 
   <h2>Available Now</h2>
   <p>CommiTrack is available for iOS (and soon for Android). Download it today on the App Store!</p>
+  <p>
+    <a href="https://apps.apple.com/us/app/commitrack/id6746461404" target="_blank" class="download-btn">📱 Download on the App Store</a>
+  </p>
 
   <h2>Contact Us</h2>
   <p>For support, questions or business inquiries, email us at:</p>
@@ -65,3 +116,4 @@
   </footer>
 </body>
 </html>
+
