@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CommiTrack | Change Email</title>
+    <style>
+      :root {
+        --bg-a: #e9f6fc;
+        --bg-b: #fdfefe;
+        --brand-a: #279fd0;
+        --brand-b: #1bb4de;
+        --ink: #16303d;
+        --muted: #56727f;
+        --ok: #12834a;
+        --warn: #b93a2f;
+        --card: #ffffff;
+        --line: #d8e7ef;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+        background: radial-gradient(circle at 10% -10%, #bde8f9 0, transparent 40%),
+          linear-gradient(180deg, var(--bg-a), var(--bg-b));
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: min(500px, 100%);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: 0 14px 40px rgba(13, 60, 82, 0.15);
+        overflow: hidden;
+      }
+
+      .head {
+        background: linear-gradient(120deg, #0f4f6c, #16779f 58%, #1f95c2);
+        color: #fff;
+        padding: 18px 24px 16px;
+        text-align: center;
+      }
+
+      .brand-logo {
+        width: 120px;
+        height: auto;
+        display: block;
+        margin: 0 auto 10px;
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 8px 20px rgba(10, 33, 46, 0.28);
+      }
+
+      .head h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.1;
+      }
+
+      .head p {
+        margin: 8px 0 0;
+        opacity: 0.95;
+      }
+
+      .content {
+        padding: 24px;
+      }
+
+      .panel {
+        border: 1px solid #dbeaf2;
+        border-radius: 14px;
+        padding: 18px;
+        background: #fafdff;
+      }
+
+      .panel p {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--muted);
+      }
+
+      .status {
+        margin-top: 14px;
+        font-size: 14px;
+        min-height: 22px;
+      }
+
+      .ok {
+        color: var(--ok);
+      }
+
+      .err {
+        color: var(--warn);
+      }
+
+      .success-box {
+        display: none;
+        margin-top: 14px;
+        padding: 18px;
+        border: 1px solid #c9ecd8;
+        border-radius: 14px;
+        background: #f3fcf7;
+      }
+
+      .success-box h3 {
+        margin: 0 0 8px;
+        color: var(--ok);
+        font-size: 20px;
+      }
+
+      .success-box p {
+        margin: 0;
+        color: #2f5f43;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <section class="head">
+        <img class="brand-logo" src="https://commitrack.com/bimi.svg" alt="CommiTrack" />
+        <h1 id="title">Confirm email change</h1>
+        <p id="subtitle">We are validating your secure link.</p>
+      </section>
+
+      <section class="content">
+        <div class="panel">
+          <p id="message">Processing request...</p>
+        </div>
+
+        <div class="success-box" id="successBox">
+          <h3 id="successTitle">Email changed successfully</h3>
+          <p id="successText">You can now return to CommiTrack and sign in with your new email.</p>
+        </div>
+
+        <p class="status" id="status"></p>
+      </section>
+    </main>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+      import {
+        getAuth,
+        checkActionCode,
+        applyActionCode,
+      } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+      const i18n = {
+        en: {
+          title: "Confirm email change",
+          subtitle: "We are validating your secure link.",
+          processing: "Processing request...",
+          invalidMode: "This link is not for changing your email.",
+          invalidLink: "This change email link is invalid or expired.",
+          applying: "Applying email change...",
+          successTitle: "Email changed successfully",
+          successText: "You can now return to CommiTrack and sign in with your new email.",
+          successStatus: "Done.",
+          unknown: "Unable to confirm this email change. Please request a new link.",
+          targetEmail: "New email: ",
+        },
+        es: {
+          title: "Confirma el cambio de correo",
+          subtitle: "Estamos validando tu enlace seguro.",
+          processing: "Procesando solicitud...",
+          invalidMode: "Este enlace no es para cambiar el correo.",
+          invalidLink: "Este enlace para cambiar correo no es valido o ya expiro.",
+          applying: "Aplicando cambio de correo...",
+          successTitle: "Correo actualizado exitosamente",
+          successText: "Ahora puedes volver a CommiTrack e iniciar sesion con tu nuevo correo.",
+          successStatus: "Listo.",
+          unknown: "No se pudo confirmar el cambio de correo. Solicita un nuevo enlace.",
+          targetEmail: "Nuevo correo: ",
+        },
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const mode = params.get("mode") || "";
+      const oobCode = params.get("oobCode");
+      const lang = (params.get("lang") || "en").toLowerCase().startsWith("es")
+        ? "es"
+        : "en";
+      const t = i18n[lang];
+
+      const cfg = {
+        apiKey: params.get("apiKey") || "AIzaSyDYmnutGJamhZuu6YoXxg3B8oOKJjJ1Yi4",
+        authDomain: "commitrack.firebaseapp.com",
+        projectId: "commitrack",
+      };
+
+      const app = initializeApp(cfg);
+      const auth = getAuth(app);
+
+      const el = {
+        title: document.getElementById("title"),
+        subtitle: document.getElementById("subtitle"),
+        message: document.getElementById("message"),
+        status: document.getElementById("status"),
+        successBox: document.getElementById("successBox"),
+        successTitle: document.getElementById("successTitle"),
+        successText: document.getElementById("successText"),
+      };
+
+      el.title.textContent = t.title;
+      el.subtitle.textContent = t.subtitle;
+      el.message.textContent = t.processing;
+      el.successTitle.textContent = t.successTitle;
+      el.successText.textContent = t.successText;
+
+      function setStatus(text, type = "") {
+        el.status.className = "status " + type;
+        el.status.textContent = text;
+      }
+
+      async function run() {
+        if (!oobCode) {
+          setStatus(t.invalidLink, "err");
+          return;
+        }
+        if (mode && mode !== "verifyAndChangeEmail") {
+          setStatus(t.invalidMode, "err");
+          return;
+        }
+
+        try {
+          const info = await checkActionCode(auth, oobCode);
+          const email = info?.data?.email || "";
+          if (email) {
+            el.message.textContent = `${t.targetEmail}${email}`;
+          }
+        } catch (_) {
+          setStatus(t.invalidLink, "err");
+          return;
+        }
+
+        try {
+          setStatus(t.applying);
+          await applyActionCode(auth, oobCode);
+          el.successBox.style.display = "block";
+          setStatus(t.successStatus, "ok");
+        } catch (e) {
+          setStatus(t.unknown, "err");
+          console.error("change-email error", e);
+        }
+      }
+
+      run();
+    </script>
+  </body>
+</html>
