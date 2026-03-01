@@ -97,11 +97,19 @@
         font-weight: 700;
       }
 
+      .ok-title.err {
+        color: #b93a2f;
+      }
+
       .ok-text {
         margin: 0;
         color: #2f5f43;
         font-size: 15px;
         line-height: 1.6;
+      }
+
+      .ok-text.err {
+        color: #7a2b23;
       }
 
       .actions {
@@ -139,15 +147,13 @@
       </section>
 
       <section class="content">
-        <div class="ok-box">
-          <p class="ok-icon">✅</p>
-          <h2 class="ok-title" id="okTitle">Verification successful</h2>
-          <p class="ok-text" id="okText">
-            You can now return to the app and sign in with your account.
-          </p>
+        <div class="ok-box" id="statusBox">
+          <p class="ok-icon" id="okIcon">⏳</p>
+          <h2 class="ok-title" id="okTitle">Verifying...</h2>
+          <p class="ok-text" id="okText">Checking secure link.</p>
         </div>
 
-        <div class="actions">
+        <div class="actions" id="actions" style="display: none;">
           <a id="cta" href="commitrack://login" class="btn">Open CommiTrack App</a>
         </div>
 
@@ -155,7 +161,14 @@
       </section>
     </main>
 
-    <script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+      import {
+        getAuth,
+        checkActionCode,
+        applyActionCode,
+      } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
       const i18n = {
         en: {
           title: "Email verified",
@@ -164,6 +177,12 @@
           okText: "You can now return to the app and sign in with your account.",
           cta: "Open CommiTrack App",
           meta: "If the app does not open, go back and sign in manually.",
+          verifying: "Verifying your email...",
+          invalid: "This verification link is invalid or expired.",
+          wrongMode: "This link is not for email verification.",
+          genericError: "Unable to verify this email. Request a new verification email.",
+          missingCode: "Verification link is incomplete. Request a new verification email.",
+          checking: "Checking secure link.",
         },
         es: {
           title: "Correo verificado",
@@ -172,6 +191,12 @@
           okText: "Ahora puedes volver a la app e iniciar sesion con tu cuenta.",
           cta: "Abrir CommiTrack",
           meta: "Si la app no se abre, vuelve e inicia sesion manualmente.",
+          verifying: "Verificando tu correo...",
+          invalid: "Este enlace de verificacion no es valido o ya expiro.",
+          wrongMode: "Este enlace no es para verificar correo.",
+          genericError: "No se pudo verificar el correo. Solicita un nuevo email de verificacion.",
+          missingCode: "El enlace de verificacion esta incompleto. Solicita un nuevo email de verificacion.",
+          checking: "Validando enlace seguro.",
         },
       };
 
@@ -184,10 +209,63 @@
       document.documentElement.lang = lang;
       document.getElementById("title").textContent = t.title;
       document.getElementById("subtitle").textContent = t.subtitle;
-      document.getElementById("okTitle").textContent = t.okTitle;
-      document.getElementById("okText").textContent = t.okText;
+      document.getElementById("okTitle").textContent = t.verifying;
+      document.getElementById("okText").textContent = t.checking;
       document.getElementById("cta").textContent = t.cta;
-      document.getElementById("meta").textContent = t.meta;
+      document.getElementById("meta").textContent = t.verifying;
+
+      const mode = params.get("mode") || "";
+      const oobCode = params.get("oobCode");
+      const cfg = {
+        apiKey: params.get("apiKey") || "AIzaSyDYmnutGJamhZuu6YoXxg3B8oOKJjJ1Yi4",
+        authDomain: "commitrack.firebaseapp.com",
+        projectId: "commitrack",
+      };
+      const app = initializeApp(cfg);
+      const auth = getAuth(app);
+
+      function showError(message) {
+        const titleEl = document.getElementById("okTitle");
+        const textEl = document.getElementById("okText");
+        const iconEl = document.getElementById("okIcon");
+        titleEl.textContent = lang === "es" ? "Verificacion fallida" : "Verification failed";
+        textEl.textContent = message;
+        titleEl.classList.add("err");
+        textEl.classList.add("err");
+        iconEl.textContent = "⚠️";
+        document.getElementById("actions").style.display = "none";
+        document.getElementById("meta").textContent = "";
+      }
+
+      async function run() {
+        if (!oobCode) {
+          showError(t.missingCode);
+          return;
+        }
+        if (mode && mode !== "verifyEmail") {
+          showError(t.wrongMode);
+          return;
+        }
+        document.getElementById("meta").textContent = t.verifying;
+        try {
+          await checkActionCode(auth, oobCode);
+        } catch (_) {
+          showError(t.invalid);
+          return;
+        }
+        try {
+          await applyActionCode(auth, oobCode);
+          document.getElementById("okIcon").textContent = "✅";
+          document.getElementById("okTitle").textContent = t.okTitle;
+          document.getElementById("okText").textContent = t.okText;
+          document.getElementById("actions").style.display = "block";
+          document.getElementById("meta").textContent = t.meta;
+        } catch (_) {
+          showError(t.genericError);
+        }
+      }
+
+      run();
     </script>
   </body>
 </html>
