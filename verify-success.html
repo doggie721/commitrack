@@ -1,67 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Verification Successful - CommiTrack</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f4f4f4;
-      color: #333333;
-    }
-    .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      padding: 40px 20px;
-    }
-    h1 {
-      color: #1a73e8;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 16px;
-      color: #555555;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #1a73e8;
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 4px;
-    }
-    .footer {
-      margin-top: 20px;
-      font-size: 12px;
-      color: #999999;
-    }
-    .footer a {
-      color: #1a73e8;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Email Verified • CommiTrack</title>
+
+<style>
+
+body{
+  margin:0;
+  padding:0;
+  background:#f6f8fb;
+  font-family:-apple-system,BlinkMacSystemFont,
+  "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+
+/* Wrapper */
+.wrapper{
+  width:100%;
+  padding:40px 15px;
+}
+
+/* Card */
+.container{
+  max-width:560px;
+  margin:auto;
+  background:#ffffff;
+  border-radius:14px;
+  padding:50px 35px;
+  text-align:center;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* Logo */
+.logo{
+  font-size:22px;
+  font-weight:700;
+  color:#111;
+  margin-bottom:30px;
+}
+
+/* Success Icon */
+.icon{
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+/* Title */
+h1{
+  margin:0;
+  font-size:26px;
+  color:#111827;
+  font-weight:600;
+}
+
+/* Text */
+p{
+  font-size:16px;
+  color:#6b7280;
+  line-height:1.6;
+  margin:18px 0;
+}
+
+/* Button */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 28px;
+  background:linear-gradient(
+      135deg,
+      #2563eb,
+      #1d4ed8
+  );
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:8px;
+  transition:all .25s ease;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 8px 18px rgba(37,99,235,.25);
+}
+
+/* Divider */
+.divider{
+  height:1px;
+  background:#eee;
+  margin:35px 0;
+}
+
+/* Footer */
+.footer{
+  font-size:13px;
+  color:#9ca3af;
+}
+
+.footer a{
+  color:#2563eb;
+  text-decoration:none;
+}
+
+@media(max-width:480px){
+  .container{
+    padding:40px 22px;
+  }
+
+  h1{
+    font-size:22px;
+  }
+}
+
+</style>
 </head>
+
 <body>
+
+<div class="wrapper">
+
   <div class="container">
-    <h1>Email Verification Successful</h1>
-    <p>Thank you for verifying your email address with CommiTrack! Your account is now active.</p>
-    <p>Please return to the app to log in and start tracking your commissions.</p>
-    <a href="commitrack://login" class="btn">Return to App</a>
-    <div class="footer">
-      <p>© 2025 CommiTrack. All rights reserved. <a href="https://commitrack.com">Visit our website</a></p>
+
+    <div class="logo">
+      ✅ CommiTrack
     </div>
+
+    <div class="icon">
+      🎉
+    </div>
+
+    <h1>Email Successfully Verified</h1>
+
+    <p>
+      Your email has been confirmed and your
+      <strong>CommiTrack account is now active.</strong>
+    </p>
+
+    <p>
+      You can now return to the app and start tracking
+      your commissions with clarity and confidence.
+    </p>
+
+    <a href="commitrack://login" class="btn">
+      Open CommiTrack App
+    </a>
+
+    <div class="divider"></div>
+
+    <div class="footer">
+      © 2026 CommiTrack Inc.<br>
+      <a href="https://commitrack.com">
+        www.commitrack.com
+      </a>
+    </div>
+
   </div>
+
+</div>
+
 </body>
 </html>
