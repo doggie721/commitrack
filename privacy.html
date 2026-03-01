@@ -1,41 +1,145 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy – CommiTrack</title>
-</head>
-<body style="font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 2em; color: #333;">
-  <h1>Privacy Policy for CommiTrack</h1>
-  <p><strong>Effective date:</strong> May 29, 2025</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CommiTrack | Privacy Policy</title>
+    <style>
+      :root {
+        --bg-a: #e9f7ff;
+        --bg-b: #ffffff;
+        --ink: #16303d;
+        --muted: #55707e;
+        --brand-a: #279fd0;
+        --brand-b: #1bb4de;
+        --line: #d7e9f2;
+      }
 
-  <p>CommiTrack (“we”, “our”, or “us”) respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile application.</p>
+      * { box-sizing: border-box; }
 
-  <h2>Information We Collect</h2>
-  <p>We collect the following personal information only when you register or reset your password:</p>
-  <ul>
-    <li>Your name</li>
-    <li>Your email address</li>
-  </ul>
-  <p>This data is used exclusively to:</p>
-  <ul>
-    <li>Allow secure login and account recovery</li>
-    <li>Identify your account within the app</li>
-  </ul>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, var(--bg-a) 0%, #f8fcff 55%, var(--bg-b) 100%);
+      }
 
-  <h2>Data Storage</h2>
-  <p>Your data is stored securely via Firebase services, including Firebase Authentication and Firestore Database. We do not store any sensitive data on our own servers.</p>
+      .wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 30px 20px 56px;
+      }
 
-  <h2>Data Sharing</h2>
-  <p>We do not share your personal data with third parties. All data remains confidential and is only accessible to you via your credentials.</p>
+      .hero {
+        background: linear-gradient(120deg, var(--brand-a), var(--brand-b));
+        color: #fff;
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 12px 26px rgba(16, 99, 136, 0.2);
+      }
 
-  <h2>Your Rights</h2>
-  <p>You can request access, update, or deletion of your data at any time by contacting us.</p>
+      .hero h1 {
+        margin: 0;
+        font-size: 36px;
+        line-height: 1.1;
+      }
 
-  <h2>Contact Us</h2>
-  <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:support@commitrack.com">support@commitrack.com</a></p>
+      .hero p {
+        margin: 10px 0 0;
+        opacity: 0.95;
+        font-size: 16px;
+      }
 
-</body>
+      .card {
+        margin-top: 16px;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 22px;
+        box-shadow: 0 10px 28px rgba(9, 63, 89, 0.08);
+      }
+
+      h2 {
+        margin: 20px 0 8px;
+        font-size: 22px;
+      }
+
+      p {
+        margin: 0 0 10px;
+        line-height: 1.7;
+      }
+
+      ul {
+        margin: 0 0 12px;
+        padding-left: 20px;
+        line-height: 1.7;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      a {
+        color: #0f7eb1;
+      }
+
+      .footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <h1>Privacy Policy</h1>
+        <p>Effective date: May 29, 2025</p>
+      </section>
+
+      <section class="card">
+        <p>
+          CommiTrack ("we", "our", or "us") respects your privacy. This policy explains
+          how we collect, use, and protect your information when you use our app.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <p>We collect the following personal information only when you register or reset your password:</p>
+        <ul>
+          <li>Your name</li>
+          <li>Your email address</li>
+        </ul>
+        <p>This data is used exclusively to:</p>
+        <ul>
+          <li>Allow secure login and account recovery</li>
+          <li>Identify your account within the app</li>
+        </ul>
+
+        <h2>Data Storage</h2>
+        <p>
+          Your data is stored securely using Firebase services, including Firebase Authentication
+          and Firestore Database. We do not store sensitive data on our own servers.
+        </p>
+
+        <h2>Data Sharing</h2>
+        <p>
+          We do not share your personal data with third parties. Data remains confidential and
+          is only accessible to you through your credentials.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>
+          You can request access, correction, or deletion of your data at any time by contacting us.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For questions about this Privacy Policy, contact us at
+          <a href="mailto:support@commitrack.com">support@commitrack.com</a>.
+        </p>
+
+        <p class="footer">© 2026 CommiTrack. All rights reserved.</p>
+      </section>
+    </main>
+  </body>
 </html>
