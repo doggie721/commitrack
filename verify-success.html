@@ -16,13 +16,11 @@ body{
   "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
-/* Wrapper */
 .wrapper{
   width:100%;
   padding:40px 15px;
 }
 
-/* Card */
 .container{
   max-width:560px;
   margin:auto;
@@ -30,25 +28,22 @@ body{
   border-radius:14px;
   padding:50px 35px;
   text-align:center;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.06);
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
 }
 
-/* Logo */
-.logo{
-  font-size:22px;
-  font-weight:700;
-  color:#111;
+/* ✅ LOGO */
+.logo img{
+  width:140px;
+  height:auto;
   margin-bottom:30px;
 }
 
-/* Success Icon */
+/* Success icon */
 .icon{
   font-size:48px;
   margin-bottom:20px;
 }
 
-/* Title */
 h1{
   margin:0;
   font-size:26px;
@@ -56,7 +51,6 @@ h1{
   font-weight:600;
 }
 
-/* Text */
 p{
   font-size:16px;
   color:#6b7280;
@@ -64,7 +58,6 @@ p{
   margin:18px 0;
 }
 
-/* Button */
 .btn{
   display:inline-block;
   margin-top:25px;
@@ -86,14 +79,12 @@ p{
   box-shadow:0 8px 18px rgba(37,99,235,.25);
 }
 
-/* Divider */
 .divider{
   height:1px;
   background:#eee;
   margin:35px 0;
 }
 
-/* Footer */
 .footer{
   font-size:13px;
   color:#9ca3af;
@@ -112,6 +103,10 @@ p{
   h1{
     font-size:22px;
   }
+
+  .logo img{
+    width:120px;
+  }
 }
 
 </style>
@@ -123,13 +118,13 @@ p{
 
   <div class="container">
 
+    <!-- ✅ Official Logo -->
     <div class="logo">
-      ✅ CommiTrack
+      <img src="https://commitrack.com/bimi.svg"
+           alt="CommiTrack Logo">
     </div>
 
-    <div class="icon">
-      🎉
-    </div>
+    <div class="icon">🎉</div>
 
     <h1>Email Successfully Verified</h1>
 
@@ -139,8 +134,8 @@ p{
     </p>
 
     <p>
-      You can now return to the app and start tracking
-      your commissions with clarity and confidence.
+      Return to the app and start tracking your
+      commissions with clarity and confidence.
     </p>
 
     <a href="commitrack://login" class="btn">
@@ -159,6 +154,9 @@ p{
   </div>
 
 </div>
+
+</body>
+</html>
 
 </body>
 </html>
