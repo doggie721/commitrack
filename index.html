@@ -1,53 +1,164 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CommiTrack – Your Commission, Clear and Without Tricks</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 1000px;
-      margin: auto;
-      padding: 2em;
-      color: #333;
+    :root {
+      --ink: #173240;
+      --muted: #526f7d;
+      --line: #d8e7ef;
+      --brand-a: #279fd0;
+      --brand-b: #1bb4de;
     }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 28px 18px 52px;
+      color: #333;
+      background:
+        radial-gradient(circle at 8% -8%, #bde8f9 0, transparent 42%),
+        linear-gradient(180deg, #eef9ff 0%, #f8fcff 60%, #ffffff 100%);
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #0f4f6c, #16779f 58%, #1f95c2);
+      border-radius: 20px;
+      padding: 26px 22px;
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(13, 67, 93, 0.22);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.93);
+      border-radius: 12px;
+      padding: 8px 12px;
+      box-shadow: 0 8px 20px rgba(10, 33, 46, 0.28);
+    }
+
+    .logo-badge img {
+      width: 120px;
+      height: auto;
+      display: block;
+    }
+
+    h1 {
+      margin: 12px 0 6px;
+      color: #ffffff;
+      font-size: 40px;
+      line-height: 1.05;
+    }
+
+    .tagline {
+      margin: 0;
+      font-size: 18px;
+      opacity: 0.95;
+    }
+
+    .lead {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 22px rgba(9, 63, 89, 0.08);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    h2 {
+      color: var(--ink);
+      margin: 18px 0 10px;
+      font-size: 28px;
+    }
+
+    ul {
+      margin: 0 0 8px;
+      line-height: 1.75;
+      color: #2e3f48;
+    }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 1em;
       justify-content: space-between;
     }
+
     .gallery-item {
       flex: 1 1 calc(33% - 1em);
       box-sizing: border-box;
       text-align: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 8px 18px rgba(9, 63, 89, 0.08);
     }
+
     .gallery-item img {
       width: 100%;
       max-width: 100%;
       border-radius: 8px;
     }
+
     .caption {
       font-style: italic;
-      color: #555;
+      color: var(--muted);
       margin-top: 0.5em;
+      font-size: 14px;
     }
-    @media (max-width: 768px) {
-      .gallery-item {
-        flex: 1 1 100%;
-      }
-    }
-    .store-button {
+
+    .store-buttons {
       margin-top: 1em;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .contact {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 12px;
+      box-shadow: 0 8px 22px rgba(9, 63, 89, 0.08);
+    }
+
+    footer {
+      margin-top: 2.4em;
+      font-size: 0.9em;
+      color: #6f7f88;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 34px; }
+      .gallery-item { flex: 1 1 100%; }
     }
   </style>
 </head>
 <body>
-  <h1 style="color: #2c3e50;">Welcome to CommiTrack</h1>
-  <p><em>Your Commission, Clear and Without Tricks</em></p>
+  <section class="hero">
+    <span class="logo-badge">
+      <img src="https://commitrack.com/bimi.svg" alt="CommiTrack Logo" />
+    </span>
+    <h1>Welcome to CommiTrack</h1>
+    <p class="tagline"><em>Your Commission, Clear and Without Tricks</em></p>
+  </section>
 
-  <p><strong>CommiTrack</strong> is the perfect app for freelancers, sales professionals, and businesses who need an accurate and clear way to track commissions.</p>
+  <p class="lead">
+    <strong>CommiTrack</strong> is the perfect app for freelancers, sales professionals, and businesses who need an accurate and clear way to track commissions.
+  </p>
 
   <h2>Why CommiTrack?</h2>
   <ul>
@@ -92,22 +203,25 @@
   </div>
 
   <h2>Available Now</h2>
-  <p>CommiTrack is available for iOS (and soon for Android). Download it today on the App Store!</p>
+  <p>CommiTrack is available for iOS and Android. Download it today:</p>
 
-  <!-- Botón oficial de Apple Store -->
-  <div class="store-button">
-    <a href="https://apps.apple.com/us/app/commitrack/id6746461404" target="_blank">
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/us/app/commitrack/id6746461404" target="_blank" rel="noopener noreferrer">
       <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="180" />
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.siete211studio.commitrack&hl=de" target="_blank" rel="noopener noreferrer">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="210" />
     </a>
   </div>
 
   <h2>Contact Us</h2>
-  <p>For support, questions or business inquiries, email us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:support@commitrack.com">support@commitrack.com</a></p>
+  <section class="contact">
+    <p>For support, questions or business inquiries, email us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:support@commitrack.com">support@commitrack.com</a></p>
+  </section>
 
-  <footer style="margin-top: 3em; font-size: 0.9em; color: #777;">
-    &copy; 2025 CommiTrack. All rights reserved.
+  <footer>
+    &copy; 2026 CommiTrack. All rights reserved.
   </footer>
 </body>
 </html>
-
