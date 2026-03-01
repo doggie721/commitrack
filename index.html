@@ -1,139 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CommiTrack</title>
-    <meta name="description" content="CommiTrack: your commission, clear and without tricks." />
-    <meta name="theme-color" content="#279fd0" />
-    <style>
-      :root {
-        --ink: #16303d;
-        --muted: #56727f;
-        --brand-a: #279fd0;
-        --brand-b: #1bb4de;
-        --line: #d7e9f2;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CommiTrack – Your Commission, Clear and Without Tricks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2em;
+      color: #333;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: space-between;
+    }
+    .gallery-item {
+      flex: 1 1 calc(33% - 1em);
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid #d8e7ef;
+    }
+    .caption {
+      font-style: italic;
+      color: #555;
+      margin-top: 0.5em;
+    }
+    @media (max-width: 768px) {
+      .gallery-item {
+        flex: 1 1 100%;
       }
+    }
+    .store-buttons {
+      margin-top: 1em;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: #2c3e50;">Welcome to CommiTrack</h1>
+  <p><em>Your Commission, Clear and Without Tricks</em></p>
 
-      * { box-sizing: border-box; }
+  <p><strong>CommiTrack</strong> is the perfect app for freelancers, sales professionals, and businesses who need an accurate and clear way to track commissions.</p>
 
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        color: var(--ink);
-        background: radial-gradient(circle at 10% -10%, #bde8f9 0, transparent 40%),
-          linear-gradient(180deg, #e9f6fc 0%, #f8fcff 56%, #ffffff 100%);
-      }
+  <h2>Why CommiTrack?</h2>
+  <ul>
+    <li>📈 Track your commissions in real-time</li>
+    <li>🛠️ Customize commission rates by product</li>
+    <li>📊 Generate detailed reports by date range</li>
+    <li>🌍 Multi-language support (English and Spanish)</li>
+    <li>🔒 Secure sign-in with Face ID / Touch ID</li>
+    <li>☁️ Cloud-based data storage with Firebase</li>
+  </ul>
 
-      .wrap {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 28px 20px 56px;
-      }
+  <h2>Screenshots</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="screens/Sceeen1.png" alt="CommiTrack: Track your sales commissions with clarity">
+      <p class="caption">Track your sales commissions with clarity</p>
+    </div>
+    <div class="gallery-item">
+      <img src="screens/Sceeen2.png" alt="Quick login with Face ID / Touch ID">
+      <p class="caption">Quick login with Face ID / Touch ID</p>
+    </div>
+    <div class="gallery-item">
+      <img src="screens/Sceeen3.png" alt="Log your product sales easily">
+      <p class="caption">Log your product sales easily</p>
+    </div>
+    <div class="gallery-item">
+      <img src="screens/Sceeen4.png" alt="Customize commission rates by product">
+      <p class="caption">Customize commission rates by product</p>
+    </div>
+    <div class="gallery-item">
+      <img src="screens/Sceeen5.png" alt="Save your sales report quickly">
+      <p class="caption">Save your sales report quickly</p>
+    </div>
+    <div class="gallery-item">
+      <img src="screens/Sceeen6.png" alt="Check your commissions by week, month or year">
+      <p class="caption">Check your commissions by week, month or year</p>
+    </div>
+    <div class="gallery-item">
+      <img src="screens/Sceeen7.png" alt="Generate clear reports with visual charts">
+      <p class="caption">Generate clear reports with visual charts</p>
+    </div>
+  </div>
 
-      .hero {
-        background: linear-gradient(120deg, #0f4f6c, #16779f 58%, #1f95c2);
-        color: #fff;
-        border-radius: 22px;
-        padding: 30px 26px;
-        text-align: center;
-        box-shadow: 0 14px 30px rgba(12, 63, 88, 0.22);
-      }
+  <h2>Available Now</h2>
+  <p>CommiTrack is available for iOS and Android. Download it today:</p>
 
-      .logo-badge {
-        display: inline-block;
-        padding: 8px 12px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.92);
-        box-shadow: 0 8px 20px rgba(10, 33, 46, 0.28);
-      }
+  <div class="store-buttons">
+    <a href="https://apps.apple.com/us/app/commitrack/id6746461404" target="_blank" rel="noopener noreferrer">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" width="180" />
+    </a>
 
-      .logo-badge img {
-        width: 120px;
-        height: auto;
-        display: block;
-      }
+    <a href="https://play.google.com/store/apps/details?id=com.siete211studio.commitrack&hl=de" target="_blank" rel="noopener noreferrer">
+      <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" width="210" />
+    </a>
+  </div>
 
-      h1 {
-        margin: 14px 0 6px;
-        font-size: 40px;
-        line-height: 1.06;
-      }
+  <h2>Contact Us</h2>
+  <p>For support, questions or business inquiries, email us at:</p>
+  <p><strong>Email:</strong> <a href="mailto:support@commitrack.com">support@commitrack.com</a></p>
 
-      .sub {
-        margin: 0;
-        font-size: 18px;
-        opacity: 0.95;
-      }
-
-      .grid {
-        margin-top: 18px;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .card {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        background: #fff;
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 18px;
-        box-shadow: 0 8px 22px rgba(9, 63, 89, 0.08);
-      }
-
-      .card h2 {
-        margin: 0 0 8px;
-        font-size: 20px;
-      }
-
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      .foot {
-        margin-top: 18px;
-        text-align: center;
-        color: var(--muted);
-        font-size: 13px;
-      }
-
-      @media (max-width: 860px) {
-        h1 { font-size: 34px; }
-        .grid { grid-template-columns: 1fr; }
-      }
-    </style>
-  </head>
-  <body>
-    <main class="wrap">
-      <section class="hero">
-        <span class="logo-badge">
-          <img src="https://commitrack.com/bimi.svg" alt="CommiTrack" />
-        </span>
-        <h1>CommiTrack</h1>
-        <p class="sub">Your commission, clear and without tricks.</p>
-      </section>
-
-      <section class="grid">
-        <a class="card" href="/marketing.html">
-          <h2>Product</h2>
-          <p>See how CommiTrack helps track commissions faster and cleaner.</p>
-        </a>
-        <a class="card" href="/privacy.html">
-          <h2>Privacy</h2>
-          <p>Read how your data is collected, stored, and protected.</p>
-        </a>
-        <a class="card" href="/support.html">
-          <h2>Support</h2>
-          <p>Get help and contact the team for account or app issues.</p>
-        </a>
-      </section>
-
-      <p class="foot">© 2026 CommiTrack. All rights reserved.</p>
-    </main>
-  </body>
+  <footer style="margin-top: 3em; font-size: 0.9em; color: #777;">
+    &copy; 2026 CommiTrack. All rights reserved.
+  </footer>
+</body>
 </html>
