@@ -1,44 +1,138 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CommiTrack – Your Commission, Clear and Without Tricks</title>
-</head>
-<body style="font-family: Arial, sans-serif; max-width: 900px; margin: auto; padding: 2em; color: #333;">
-  <h1 style="color: #2c3e50;">Welcome to CommiTrack</h1>
-  <p><em>Your Commission, Clear and Without Tricks</em></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CommiTrack | Your Commission, Clear and Without Tricks</title>
+    <style>
+      :root {
+        --ink: #16303d;
+        --muted: #55707e;
+        --brand-a: #279fd0;
+        --brand-b: #1bb4de;
+      }
 
-  <p><strong>CommiTrack</strong> is the ultimate tool for freelancers, sales reps, and businesses to track commissions with clarity and confidence.</p>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, #eaf8ff 0%, #f7fcff 48%, #ffffff 100%);
+      }
 
-  <h2>Why CommiTrack?</h2>
-  <ul>
-    <li>📈 Track commissions in real-time</li>
-    <li>🛠️ Customize commission rates by product or service</li>
-    <li>📊 Generate detailed reports by date range</li>
-    <li>🌍 Multi-language support (English & Spanish)</li>
-    <li>🔒 Secure login with Face ID / Touch ID</li>
-    <li>📂 Local data storage — no cloud needed</li>
-  </ul>
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 20px 56px;
+      }
 
-  <h2>Screenshots</h2>
-  <p>See how simple and powerful it is to manage your commissions:</p>
-  <ul>
-    <li><a href="#login">Login Screen</a></li>
-    <li><a href="#dashboard">Commission Dashboard</a></li>
-    <li><a href="#reports">PDF Report Generator</a></li>
-  </ul>
+      .hero {
+        background: linear-gradient(120deg, var(--brand-a), var(--brand-b));
+        color: #fff;
+        border-radius: 20px;
+        padding: 34px 28px;
+        box-shadow: 0 12px 26px rgba(16, 99, 136, 0.2);
+      }
 
-  <h2>Available Now</h2>
-  <p>CommiTrack is available for iOS (and soon for Android). Download today from the App Store!</p>
+      .hero h1 {
+        margin: 0;
+        font-size: 40px;
+        line-height: 1.1;
+      }
 
-  <h2>Contact Us</h2>
-  <p>For support, questions, or partnership opportunities, email us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:support@commitrack.com">support@commitrack.com</a></p>
+      .hero p {
+        margin: 10px 0 0;
+        font-size: 18px;
+        opacity: 0.95;
+      }
 
-  <footer style="margin-top: 3em; font-size: 0.9em; color: #777;">
-    &copy; 2025 CommiTrack. All rights reserved.
-  </footer>
-</body>
+      .grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #d7e9f2;
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        line-height: 1.7;
+      }
+
+      .contact {
+        margin-top: 18px;
+        text-align: center;
+      }
+
+      .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: linear-gradient(120deg, #279fd0, #1bb4de);
+        color: #fff;
+        border-radius: 999px;
+        padding: 13px 24px;
+        font-weight: 700;
+      }
+
+      .small {
+        margin-top: 12px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 760px) {
+        .hero h1 {
+          font-size: 32px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <h1>Welcome to CommiTrack</h1>
+        <p>Your commission, clear and without tricks.</p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Why teams choose CommiTrack</h2>
+          <ul>
+            <li>Track commissions with precision</li>
+            <li>Customize rates by product or service</li>
+            <li>Generate clear report history by date</li>
+            <li>Face ID / Touch ID sign-in support</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Built for daily sales flow</h2>
+          <ul>
+            <li>Fast daily entries</li>
+            <li>Simple, clear dashboard</li>
+            <li>English and Spanish support</li>
+            <li>PDF export for follow-up and records</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="contact">
+        <a class="cta" href="mailto:support@commitrack.com">Contact Support</a>
+        <p class="small">Questions or partnerships: support@commitrack.com</p>
+      </section>
+    </main>
+  </body>
 </html>

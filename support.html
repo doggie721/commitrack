@@ -1,31 +1,116 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support – CommiTrack</title>
-</head>
-<body style="font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 2em; color: #333;">
-  <h1>Support – CommiTrack</h1>
-  <p>Thank you for using CommiTrack!</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CommiTrack | Support</title>
+    <style>
+      :root {
+        --bg: #f4fbff;
+        --ink: #16303d;
+        --muted: #55707e;
+        --brand: #279fd0;
+      }
 
-  <h2>Need help?</h2>
-  <p>If you're experiencing any issues, have questions, or need assistance, we're here to help.</p>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(180deg, #e9f7ff 0%, #f8fcff 60%, #ffffff 100%);
+        color: var(--ink);
+      }
 
-  <h3>Common topics:</h3>
-  <ul>
-    <li>Recovering your password</li>
-    <li>Setting up your commission products</li>
-    <li>Understanding reports</li>
-    <li>Using Face ID or Touch ID to log in</li>
-  </ul>
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px 20px 48px;
+      }
 
-  <p>You can reach us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:support@commitrack.com">support@commitrack.com</a></p>
+      .hero {
+        background: #fff;
+        border: 1px solid #d7e9f2;
+        border-radius: 18px;
+        padding: 28px;
+        box-shadow: 0 10px 28px rgba(9, 63, 89, 0.08);
+      }
 
-  <p>We usually respond within 24–48 hours.</p>
+      h1 {
+        margin: 0;
+        font-size: 36px;
+      }
 
-  <p>— The CommiTrack Team</p>
-</body>
+      .sub {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 17px;
+      }
+
+      .grid {
+        margin-top: 18px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid #d7e9f2;
+        border-radius: 14px;
+        padding: 16px;
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 22px;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        line-height: 1.7;
+      }
+
+      a {
+        color: #0f7eb1;
+      }
+
+      .email {
+        display: inline-block;
+        margin-top: 8px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      @media (max-width: 640px) {
+        h1 {
+          font-size: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <h1>Support</h1>
+        <p class="sub">Need help with CommiTrack? Our team is here to help you quickly.</p>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Common topics</h2>
+          <ul>
+            <li>Password reset and account access</li>
+            <li>Commission setup and product configuration</li>
+            <li>Reports and PDF exports</li>
+            <li>Face ID / Touch ID sign-in issues</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Contact</h2>
+          <p>Send us an email and include screenshots if possible.</p>
+          <a class="email" href="mailto:support@commitrack.com">support@commitrack.com</a>
+          <p style="margin-top:10px;color:#55707e;">Typical response time: 24-48 hours.</p>
+        </article>
+      </section>
+    </main>
+  </body>
 </html>
