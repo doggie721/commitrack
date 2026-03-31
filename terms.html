@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommiTrack Terms of Service</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #111827;
+      --muted: #667085;
+      --line: rgba(14, 165, 233, 0.14);
+      --primary: #14b8ff;
+      --primary-dark: #0b6ea8;
+      --accent: #0ea5e9;
+      --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(20, 184, 255, 0.14), transparent 32%),
+        radial-gradient(circle at top right, rgba(14, 165, 233, 0.10), transparent 24%),
+        linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      padding: 22px 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand:hover {
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 134px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 26px rgba(14, 165, 233, 0.18));
+    }
+
+    .brand-copy {
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand-title {
+      font-size: 1.06rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .topbar-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: rgba(14, 165, 233, 0.08);
+      border: 1px solid rgba(14, 165, 233, 0.14);
+      color: var(--primary-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 28px 0 22px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: 32px;
+      color: white;
+      background: linear-gradient(135deg, #0f3d59 0%, #0b2f46 45%, #081f31 100%);
+      box-shadow: 0 26px 60px rgba(8, 31, 49, 0.28);
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .hero-card::before {
+      width: 240px;
+      height: 240px;
+      right: -70px;
+      top: -50px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .hero-card::after {
+      width: 180px;
+      height: 180px;
+      left: -30px;
+      bottom: -55px;
+      background: rgba(255, 190, 92, 0.08);
+    }
+
+    .hero-logo {
+      position: absolute;
+      right: 24px;
+      bottom: 22px;
+      width: min(248px, 28vw);
+      height: auto;
+      opacity: 0.1;
+      pointer-events: none;
+      filter: grayscale(1) brightness(2.2);
+      mix-blend-mode: screen;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 720px;
+      color: rgba(255,255,255,0.84);
+      font-size: 1.05rem;
+    }
+
+    .hero-meta {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-pill {
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      font-weight: 700;
+      color: rgba(255,255,255,0.90);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 26px;
+      padding: 28px 0 54px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .sidebar p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav {
+      display: grid;
+      gap: 10px;
+    }
+
+    .nav a {
+      display: block;
+      padding: 11px 14px;
+      border-radius: 14px;
+      color: #1f2937;
+      background: rgba(14, 165, 233, 0.06);
+      font-weight: 600;
+    }
+
+    .nav a:hover {
+      background: rgba(14, 165, 233, 0.11);
+      text-decoration: none;
+    }
+
+    .main {
+      display: grid;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
+
+    .card p,
+    .card li {
+      color: #374151;
+      font-size: 1rem;
+    }
+
+    .card ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .mini {
+      border-radius: 20px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(14, 165, 233, 0.08), rgba(14, 165, 233, 0.03));
+      border: 1px solid var(--line);
+    }
+
+    .mini strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(14, 165, 233, 0.09);
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .contact-box {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(20, 184, 255, 0.10), rgba(20, 184, 255, 0.04));
+      border: 1px solid var(--line);
+    }
+
+    .footer {
+      padding: 8px 0 40px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .shell {
+        width: min(100% - 20px, 1120px);
+      }
+
+      .hero-card,
+      .card,
+      .sidebar {
+        border-radius: 24px;
+      }
+
+      .hero-card {
+        padding: 24px;
+      }
+
+      .card,
+      .sidebar {
+        padding: 20px;
+      }
+
+      .topbar {
+        padding: 18px 0 6px;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand-mark {
+        width: 110px;
+      }
+
+      .brand-copy,
+      .topbar-chip {
+        display: none;
+      }
+
+      .hero-logo {
+        width: 160px;
+        right: 12px;
+        bottom: 12px;
+        opacity: 0.12;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a href="/" class="brand" aria-label="CommiTrack home">
+        <img class="brand-mark" src="./commitrack_legal_assets/commitrack_logo_en.png" alt="CommiTrack logo" />
+        <span class="brand-copy">
+          <span class="brand-title">CommiTrack</span>
+          <span class="brand-subtitle">Legal center</span>
+        </span>
+      </a>
+      <span class="topbar-chip">Terms &amp; Privacy</span>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <img class="hero-logo" src="./commitrack_legal_assets/commitrack_logo_en.png" alt="" aria-hidden="true" />
+        <div class="eyebrow">Smart Tracking • Legal</div>
+        <h1>Terms of Service</h1>
+        <p>
+          These Terms explain the rules for using CommiTrack, your responsibilities as a user,
+          and the limits of our service. By using the app, you agree to the terms below.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-pill">Effective Date: March 30, 2026</div>
+          <div class="hero-pill">Applies to all CommiTrack users</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <aside class="sidebar">
+        <h2>On this page</h2>
+        <p>Quick navigation to each section.</p>
+        <nav class="nav">
+          <a href="#use">Use of the App</a>
+          <a href="#account">Account Responsibility</a>
+          <a href="#data">Data & Accuracy</a>
+          <a href="#payments">Payments & Premium Access</a>
+          <a href="#liability">Limitation of Liability</a>
+          <a href="#termination">Termination</a>
+          <a href="#changes">Changes to Terms</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <article class="card">
+          <div class="section-tag">Overview</div>
+          <h2>Welcome to CommiTrack</h2>
+          <p>
+            CommiTrack is designed to help users track, manage, and review commissions more clearly.
+            By accessing or using the CommiTrack app, website, or related services, you agree to be
+            bound by these Terms of Service.
+          </p>
+          <div class="intro-grid">
+            <div class="mini">
+              <strong>Clear use</strong>
+              CommiTrack is for tracking commissions and related activity in a lawful way.
+            </div>
+            <div class="mini">
+              <strong>User responsibility</strong>
+              You are responsible for the information you enter and how you use it.
+            </div>
+            <div class="mini">
+              <strong>Premium features</strong>
+              Some features may require a paid upgrade handled by the app store.
+            </div>
+          </div>
+        </article>
+
+        <article class="card" id="use">
+          <div class="section-tag">1</div>
+          <h2>Use of the App</h2>
+          <p>
+            CommiTrack is provided to help users log, organize, and review commission-related information.
+            You agree to use the app only for lawful purposes and in a way that does not harm, disable,
+            overburden, or impair our services.
+          </p>
+          <ul>
+            <li>You may not use CommiTrack for fraudulent, abusive, or illegal activity.</li>
+            <li>You may not attempt to interfere with the normal operation or security of the app.</li>
+            <li>You may not misuse the app in a way that violates applicable laws or platform rules.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="account">
+          <div class="section-tag">2</div>
+          <h2>Account Responsibility</h2>
+          <p>
+            If you create an account, you are responsible for maintaining the confidentiality of your login
+            credentials and for all activity that occurs under your account.
+          </p>
+          <ul>
+            <li>Provide accurate information when creating your account.</li>
+            <li>Keep your password and login information secure.</li>
+            <li>Notify us promptly if you believe your account has been used without authorization.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="data">
+          <div class="section-tag">3</div>
+          <h2>Data & Accuracy</h2>
+          <p>
+            CommiTrack provides tools, summaries, and projections to help you manage commissions, but we do
+            not guarantee that calculations, reports, or projections will always be error-free or suitable
+            for every financial decision.
+          </p>
+          <ul>
+            <li>You are responsible for reviewing and verifying your own commission records.</li>
+            <li>CommiTrack is a productivity tool and not professional financial, tax, or legal advice.</li>
+            <li>Any decisions you make based on the data remain your responsibility.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="payments">
+          <div class="section-tag">4</div>
+          <h2>Payments & Premium Access</h2>
+          <p>
+            CommiTrack may offer premium features through one-time purchases or other app store billing options.
+            Purchases are processed by Apple App Store or Google Play, not directly by CommiTrack.
+          </p>
+          <ul>
+            <li>We do not directly store or process your payment card information.</li>
+            <li>Pricing, billing, refunds, and transaction rules may be subject to the app store’s policies.</li>
+            <li>Unless otherwise required by law or platform policy, purchases are considered final.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="liability">
+          <div class="section-tag">5</div>
+          <h2>Limitation of Liability</h2>
+          <p>
+            CommiTrack is provided on an “as is” and “as available” basis, without warranties of any kind,
+            whether express or implied. To the fullest extent permitted by law, we disclaim liability for
+            losses or damages resulting from your use of the service.
+          </p>
+          <ul>
+            <li>We are not responsible for business, financial, or tax decisions made using the app.</li>
+            <li>We are not liable for service interruptions, device issues, or third-party platform problems.</li>
+            <li>We do not guarantee uninterrupted or error-free access at all times.</li>
+          </ul>
+        </article>
+
+        <article class="card" id="termination">
+          <div class="section-tag">6</div>
+          <h2>Termination</h2>
+          <p>
+            We reserve the right to suspend, restrict, or terminate access to CommiTrack if these Terms are
+            violated, if misuse is detected, or if we reasonably believe termination is necessary to protect
+            the app, our users, or our business.
+          </p>
+        </article>
+
+        <article class="card" id="changes">
+          <div class="section-tag">7</div>
+          <h2>Changes to Terms</h2>
+          <p>
+            We may update these Terms from time to time. When changes are made, we may revise the effective
+            date shown on this page. Your continued use of CommiTrack after changes become effective means
+            that you accept the updated Terms.
+          </p>
+        </article>
+
+        <article class="card" id="contact">
+          <div class="section-tag">8</div>
+          <h2>Contact</h2>
+          <p>
+            If you have questions about these Terms of Service, you can contact us at the email below.
+          </p>
+          <div class="contact-box">
+            <strong>Email:</strong>
+            <a href="mailto:support@commitrack.com">support@commitrack.com</a>
+          </div>
+          <div class="contact-box" style="margin-top: 12px;">
+            <strong>Related page:</strong>
+            <a href="/privacy">Privacy Policy</a>
+          </div>
+        </article>
+      </main>
+    </section>
+
+    <footer class="footer">
+      © 2026 CommiTrack. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
